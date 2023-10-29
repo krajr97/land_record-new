@@ -1,0 +1,108 @@
+<%- include('layout/header') %>
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+            <div class="page-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="page-title">Bhalua</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Bhalua</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto text-right float-right ml-auto">
+                        <form action="/export_bhalua" mehotd="GET">
+                            <button id="export-csv" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</button >
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <% if(message){ %>
+                        <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                           <button class="btn-close" type="button" data-bs-dismiss ="alert" aria-label="Close"></button>
+                           <strong><%= message.message %></strong>
+                        </div>       
+                       <% } %>
+                    <div class="card card-table">
+                        <div class="card-body">                           
+                            <div class="table-responsive"> 
+                                <form method="get" action="/search_bhalua">
+                                    <div class="row" id="filter_row">
+                                        <div class="form-group col-sm-3" style="margin-top:2px;">
+                                          <label class="font-secondary">Khata:</label>
+                                          <input type="text" autocomplete="off" value="<%= khata %>" name="khata" class="form-control" placeholder="Enter Khata">
+                                        </div>	
+                                        <div class="form-group col-sm-3" style="margin-top:2px;">
+                                          <label class="font-secondary">Keshera:</label>
+                                          <input type="text" autocomplete="off" value="<%= keshera %>" name="keshera" class="form-control" placeholder="Enter Keshera">
+                                        </div>                         
+                                        <div class="form-group col-sm-3" style="margin-top:32px;">
+                                          <button type="submit" class="btn btn-primary">Apply</button>
+                                          <a href="/bhalua_list" class="btn btn-success">Clear</a>
+                                        </div>
+                                      </div>
+                                </form>                               
+                                <table class="table table-hover table-center mb-0 datatable" id="bhalua_table_id" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Khata</th>
+                                            <th>Keshera</th>
+                                            <th>Acre</th>
+                                            <th>Dismil</th>
+                                            <th>Old Property Holder</th>
+                                            <th>New Property Holder</th>
+                                            <th class="text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% if( bhalua_list !=''){%>
+                                        <% bhalua_list.forEach((row,index)=>{ %>
+                                        <tr>
+                                            <td><%= index+1;  %></td>
+                                            <td><%= row.khata  %></td>
+                                            <td><%= row.keshera  %></td>
+                                            <td><%= row.acre  %></td>
+                                            <td><%= row.dismil  %></td>
+                                            <td><%= row.old_property_holder  %></td>
+                                            <td><%= row.new_property_holder  %></td>
+                                            <td class="text-right">
+                                                <div class="actions">
+                                                    <a href="/edit_bhalua/<%= row._id %>"
+                                                        class="btn btn-sm bg-success-light mr-2">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                    <a href="/delete_bhalua/<%= row._id %>" class="btn btn-sm bg-danger-light">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                    <% }else{ %>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-center text-secondary mt-5"> No users found in the database !</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>  
+                                    <% } %>
+                                    </tbody>
+                                </table>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('layout/footer') %>

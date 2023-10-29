@@ -1,0 +1,164 @@
+<%- include('layout/header')  %>
+         <div class="page-wrapper">
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Add Village</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/list_village">Village</a></li>
+                           <li class="breadcrumb-item active">Add Village</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <% if(message){ %>
+                        <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                           <button class="btn-close" type="button" data-bs-dismiss ="alert" aria-label="Close"></button>
+                           <strong><%= message.message %></strong>
+                        </div>       
+                       <% } %>
+                     <div class="card">
+                        <div class="card-body">
+                           <form method="post" action="/add">
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span>Village Information</span></h5>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Village Name <span class="required">*</span></label>
+                                       <select class="form-control" name="village_name">
+                                          <option>Select Village Name</option>
+                                          <option value="1">Lohan</option>
+                                          <option value="2">Bhalua</option>
+                                          <option value="3">Lutaut</option>
+                                          <option value="4">Nath Nagar</option>
+                                       </select>
+                                    </div>
+                                    <% if(errors && errors.village_name){ %>
+                                       <span class="text-danger"><%= errors.village_name.msg  %></span>
+                                    <% } %>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Khata <span class="required">*</span></label>
+                                       <input type="text" class="form-control" placeholder="Enter Khata" name="khata">
+                                       <% if(errors && errors.khata){ %>
+                                          <span class="text-danger"><%= errors.khata.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Keshera <span class="required">*</span></label>
+                                       <input type="text" class="form-control" placeholder="Enter Keshera" name="keshera">
+                                       <% if(errors && errors.keshera){ %>
+                                          <span class="text-danger"><%= errors.keshera.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Acre <span class="required">*</span></label>
+                                       <input type="text" class="form-control" placeholder="Enter Acre" name="acre">
+                                       <% if(errors && errors.acre){ %>
+                                          <span class="text-danger"><%= errors.acre.msg  %></span>
+                                       <% } %>
+                                    </div>                                   
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Dismil</label>
+                                       <input type="text" class="form-control" placeholder="Enter Dismil" name="dismil">
+                                       <% if(errors && errors.dismil){ %>
+                                          <span class="text-danger"><%= errors.dismil.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Old Property Holder</label>
+                                       <input type="text" class="form-control" placeholder="Enter Old property holder name" name="old_property_holder">
+                                       <% if(errors && errors.old_property_holder){ %>
+                                          <span class="text-danger"><%= errors.old_property_holder.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>North</label>
+                                       <input type="text" class="form-control" placeholder="Enter North" name="north">
+                                       <% if(errors && errors.north){ %>
+                                          <span class="text-danger"><%= errors.north.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>South</label>
+                                       <input type="text" class="form-control" placeholder="Enter South" name="south">
+                                       <% if(errors && errors.south){ %>
+                                          <span class="text-danger"><%= errors.south.msg  %></span>
+                                       <% } %>
+                                    </div>                                   
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>East</label>
+                                       <input type="text" class="form-control" placeholder="Enter East" name="east">
+                                       <% if(errors && errors.east){ %>
+                                          <span class="text-danger"><%= errors.east.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>West</label>
+                                       <input type="text" class="form-control" placeholder="Enter West" name="west">
+                                       <% if(errors && errors.west){ %>
+                                          <span class="text-danger"><%= errors.west.msg  %></span>
+                                       <% } %>
+                                    </div>                                    
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Jamabandi</label>
+                                       <input type="text" class="form-control" placeholder="Enter Jamabandi" name="jamabandi">
+                                       <% if(errors && errors.jamabandi){ %>
+                                          <span class="text-danger"><%= errors.jamabandi.msg  %></span>
+                                       <% } %>
+                                    </div>                                   
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>New Property Holder</label>
+                                       <input type="text" class="form-control" placeholder="Enter New Property Holder Name" name="new_property_holder">
+                                       <% if(errors && errors.new_property_holder){ %>
+                                          <span class="text-danger"><%= errors.new_property_holder.msg  %></span>
+                                       <% } %>
+                                    </div>                                   
+                                 </div>
+                                 <div class="form-group col-md-12">
+                                    <label>Remarks</label>  
+                                    <textarea name="remarks" id="Remarks" class="textarea"></textarea>
+                                    <% if(errors && errors.remarks){ %>
+                                       <span class="text-danger"><%= errors.remarks.msg  %></span>
+                                    <% } %>
+                                 </div>                        
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('layout/footer')  %>
+      

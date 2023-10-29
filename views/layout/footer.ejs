@@ -1,0 +1,55 @@
+<!-- <footer>
+    <p>Copyright © 2023.</p>
+ </footer> -->
+</div>
+</div>
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="/summernote/dist/summernote-bs4.min.js"></script>
+<script src="/js/script.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script>
+    $(function () {
+      // Summernote
+      $('.textarea').summernote({
+          height:'100px'
+      })
+    });
+    
+    $(document).ready(function() {
+      $('#lohan_table_id').DataTable({
+          scrollX: true,
+      });
+    });
+    $(document).ready(function() {
+      $('#bhalua_table_id').DataTable({
+          scrollX: true,
+      });
+    });
+    $(document).ready(function() {
+      $('#lutaut_table_id').DataTable({
+          scrollX: true,
+      });
+    });
+    $(document).ready(function() {
+      $('#nathNagar_table_id').DataTable({
+          scrollX: true,
+      });
+    });
+    $(document).ready(function() {
+      $('#lohan_tableList_id').DataTable({
+          scrollX: true,
+      });
+    });
+
+    $(document).ready(function(){
+      $('#bhalua_tableList_id').DataTable({
+         scrollX : true,
+      });
+    });
+  </script>
+</body>
+
+</html>

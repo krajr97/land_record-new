@@ -1,0 +1,119 @@
+<%- include('layout/header')  %>
+ <div class="page-wrapper">
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Edit Bhalua</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/bhalua_list">Bhalua List</a></li>
+                           <li class="breadcrumb-item active">Edit Village (Bhalua)</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form action="/update_bhalua/<%= bhalua._id %>" method="post">
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span>Village Information</span></h5>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Village Name</label>
+                                       <select class="form-control" name="village_name">
+                                          <option>Select Village Name</option>                                         
+                                          <option <%= (bhalua.village_name ==='1') ? 'selected' :'' %> value="1">Lohan</option>
+                                          <option <%= (bhalua.village_name === '2') ? 'selected' :'' %> value="2">Bhalua</option>
+                                          <option <%= (bhalua.village_name === '3') ? 'selected' :'' %> value="3">Lutaut</option>
+                                          <option <%= (bhalua.village_name === '4') ? 'selected' :'' %> value="4">Nath Nagar</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Khata</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.khata  %>" placeholder="Enter Khata" name="khata">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Keshera</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.keshera  %>" placeholder="Enter Keshera" name="keshera">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Acre</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.acre  %>" placeholder="Enter Acre" name="acre">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Dismil</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.dismil  %>" placeholder="Enter Dismil" name="dismil">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Old Property Holder</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.old_property_holder  %>" placeholder="Enter Old property holder name" name="old_property_holder">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>North</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.north  %>" placeholder="Enter North" name="north">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>South</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.south  %>" placeholder="Enter South" name="south">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>East</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.east  %>" placeholder="Enter East" name="east">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>West</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.west  %>" placeholder="Enter West" name="west">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>Jamabandi</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.jamabandi  %>" placeholder="Enter Jamabandi" name="jamabandi">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-3">
+                                    <div class="form-group">
+                                       <label>New Property Holder</label>
+                                       <input type="text" class="form-control" value="<%= bhalua.new_property_holder  %>" placeholder="Enter New Property Holder Name" name="new_property_holder">
+                                    </div>
+                                 </div>  
+                                 <div class="form-group col-md-12">
+                                    <label>Remarks</label>  
+                                    <textarea name="remarks" id="Remarks" class="textarea"><%= bhalua.remarks  %></textarea>
+                                 </div>                        
+                                                                                             
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+         <%- include('layout/footer')  %>

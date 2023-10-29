@@ -1,0 +1,44 @@
+<%- include('layout/header')  %>
+         <div class="page-wrapper">
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Upload Village</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/list_village">Village</a></li>
+                           <li class="breadcrumb-item active">Upload Village</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <% if(message){ %>
+                        <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+                           <button class="btn-close" type="button" data-bs-dismiss ="alert" aria-label="Close"></button>
+                           <strong><%= message.message %></strong>
+                        </div>       
+                       <% } %>
+                     <div class="card">
+                        <div class="card-body">
+                           <div class="row">
+                              <div class="col-12">
+                                 <h5 class="form-title"><span>Upload csv file</span></h5>
+                              </div>  
+                                 <div class="card-body">  
+                                    <form action="/import_village" method="post" enctype="multipart/form-data">  
+                                       <input type="file" class="form-control" name="csv"><br><br>  
+                                       <div class="col-12">
+                                          <button type="submit" class="btn btn-primary">Submit</button>
+                                       </div>     
+                                    </form> 
+                                 </div>                                                                    
+                           </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <%- include('layout/footer')  %>
